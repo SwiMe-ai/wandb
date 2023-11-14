@@ -2,8 +2,6 @@ import copy
 from datetime import datetime
 from typing import Callable, Dict, Optional, Union
 
-from packaging import version
-
 try:
     import dill as pickle
 except ImportError:
@@ -14,16 +12,7 @@ from wandb.sdk.lib import telemetry
 
 try:
     import torch
-    import ultralytics
     from tqdm.auto import tqdm
-
-    if version.parse(ultralytics.__version__) > version.parse("8.0.186"):
-        wandb.termwarn(
-            """This integration is tested and supported for ultralytics v8.0.186 and below.
-            Please report any issues to https://github.com/wandb/wandb/issues with the tag `yolov8`.""",
-            repeat=False,
-        )
-
     from ultralytics.models import YOLO
     from ultralytics.models.yolo.classify import (
         ClassificationPredictor,
@@ -42,7 +31,7 @@ try:
         SegmentationValidator,
     )
     from ultralytics.utils.torch_utils import de_parallel
-    from ultralytics.yolo.utils import RANK, __version__
+    from ultralytics.utils import RANK, __version__
 
     from wandb.integration.ultralytics.bbox_utils import (
         plot_predictions,
