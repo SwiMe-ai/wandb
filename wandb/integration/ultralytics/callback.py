@@ -31,7 +31,7 @@ try:
         SegmentationValidator,
     )
     from ultralytics.utils.torch_utils import de_parallel
-    from ultralytics.yolo.utils import RANK, __version__
+    from ultralytics.utils import RANK, __version__
 
     from wandb.integration.ultralytics.bbox_utils import (
         plot_predictions,
@@ -205,10 +205,14 @@ class WandBUltralyticsCallback:
         model_checkpoint_artifact = wandb.Artifact(
             f"run_{wandb.run.id}_model", "model", metadata=vars(trainer.args)
         )
+        if isinstance(trainer.model, torch.nn.parallel.DistributedDataParallel):
+            model = trainer.model.module
+        else:
+            model = trainer.model
         checkpoint_dict = {
             "epoch": trainer.epoch,
             "best_fitness": trainer.best_fitness,
-            "model": copy.deepcopy(de_parallel(self.model)).half(),
+            "model": copy.deepcopy(de_parallel(model)).half(),
             "ema": copy.deepcopy(trainer.ema.ema).half(),
             "updates": trainer.ema.updates,
             "optimizer": trainer.optimizer.state_dict(),
@@ -283,8 +287,8 @@ class WandBUltralyticsCallback:
                             epoch=trainer.epoch,
                         )
                     )
-            if self.enable_model_checkpointing:
-                self._save_model(trainer)
+            #if self.enable_model_checkpointing:
+            #    self._save_model(trainer)
             self.model.to("cpu")
             trainer.model.to(self.device)
 
@@ -373,6 +377,7 @@ class WandBUltralyticsCallback:
             "on_train_end": self.on_train_end,
             "on_val_end": self.on_val_end,
             "on_predict_end": self.on_predict_end,
+            "on_model_save": self._save_model,
         }
 
 
@@ -447,6 +452,8 @@ def add_wandb_callback(
             _ = callbacks.pop("on_val_end")
         if not enable_prediction_logging:
             _ = callbacks.pop("on_predict_end")
+        if not enable_model_checkpointing:
+            _ = callbacks.pop("on_model_save")
         for event, callback_fn in callbacks.items():
             model.add_callback(event, callback_fn)
     else:
