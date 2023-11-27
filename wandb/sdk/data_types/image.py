@@ -277,8 +277,8 @@ class Image(BatchableMedia):
         )
         if util.is_matplotlib_typename(util.get_full_typename(data)):
             buf = BytesIO()
-            util.ensure_matplotlib_figure(data).savefig(buf)
-            self._image = pil_image.open(buf)
+            util.ensure_matplotlib_figure(data).savefig(buf, format="png")
+            self._image = pil_image.open(buf, formats=["PNG"])
         elif isinstance(data, pil_image.Image):
             self._image = data
         elif util.is_pytorch_tensor_typename(util.get_full_typename(data)):
@@ -336,7 +336,7 @@ class Image(BatchableMedia):
                 _boxes[key]._key = key
 
         return cls(
-            source_artifact.get_path(json_obj["path"]).download(),
+            source_artifact.get_entry(json_obj["path"]).download(),
             caption=json_obj.get("caption"),
             grouping=json_obj.get("grouping"),
             classes=classes,

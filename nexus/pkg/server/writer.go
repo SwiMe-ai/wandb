@@ -31,6 +31,10 @@ type Writer struct {
 	// store is the store for the writer
 	store *Store
 
+	// recordNum is the running count of stored records
+	recordNum int64
+
+	// wg is the wait group for the writer
 	wg sync.WaitGroup
 }
 
@@ -54,7 +58,7 @@ func (w *Writer) do(inChan <-chan *service.Record) {
 	w.storeChan = make(chan *service.Record, BufferSize*8)
 
 	var err error
-	w.store, err = NewStore(w.ctx, w.settings.GetSyncFile().GetValue(), nil)
+	w.store, err = NewStore(w.ctx, w.settings.GetSyncFile().GetValue(), w.logger)
 	if err != nil {
 		w.logger.CaptureFatalAndPanic("writer: error creating store", err)
 	}
@@ -77,16 +81,15 @@ func (w *Writer) do(inChan <-chan *service.Record) {
 	for record := range inChan {
 		w.handleRecord(record)
 	}
-	w.close()
+	w.wg.Wait()
 }
 
-// close closes the writer and all its resources
+// Close closes the writer and all its resources
 // which includes the store
-func (w *Writer) close() {
-	w.logger.Info("writer: closed", "stream_id", w.settings.RunId)
+func (w *Writer) Close() {
 	close(w.fwdChan)
 	close(w.storeChan)
-	w.wg.Wait()
+	w.logger.Info("writer: closed", "stream_id", w.settings.RunId)
 }
 
 // handleRecord Writing messages to the append-only log,
@@ -111,6 +114,8 @@ func (w *Writer) storeRecord(record *service.Record) {
 	if record.GetControl().GetLocal() {
 		return
 	}
+	w.recordNum += 1
+	record.Num = w.recordNum
 	w.storeChan <- record
 }
 

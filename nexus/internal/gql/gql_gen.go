@@ -27,6 +27,120 @@ func (v *ArtifactAliasInput) GetArtifactCollectionName() string { return v.Artif
 // GetAlias returns ArtifactAliasInput.Alias, and is useful for accessing the field via an interface.
 func (v *ArtifactAliasInput) GetAlias() string { return v.Alias }
 
+// ArtifactFileURLsArtifact includes the requested fields of the GraphQL type Artifact.
+type ArtifactFileURLsArtifact struct {
+	Files ArtifactFileURLsArtifactFilesFileConnection `json:"files"`
+}
+
+// GetFiles returns ArtifactFileURLsArtifact.Files, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifact) GetFiles() ArtifactFileURLsArtifactFilesFileConnection {
+	return v.Files
+}
+
+// ArtifactFileURLsArtifactFilesFileConnection includes the requested fields of the GraphQL type FileConnection.
+type ArtifactFileURLsArtifactFilesFileConnection struct {
+	PageInfo ArtifactFileURLsArtifactFilesFileConnectionPageInfo        `json:"pageInfo"`
+	Edges    []ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge `json:"edges"`
+}
+
+// GetPageInfo returns ArtifactFileURLsArtifactFilesFileConnection.PageInfo, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnection) GetPageInfo() ArtifactFileURLsArtifactFilesFileConnectionPageInfo {
+	return v.PageInfo
+}
+
+// GetEdges returns ArtifactFileURLsArtifactFilesFileConnection.Edges, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnection) GetEdges() []ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge {
+	return v.Edges
+}
+
+// ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge includes the requested fields of the GraphQL type FileEdge.
+type ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge struct {
+	Node *ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile `json:"node"`
+}
+
+// GetNode returns ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge.Node, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdge) GetNode() *ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile {
+	return v.Node
+}
+
+// ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile includes the requested fields of the GraphQL type File.
+type ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile struct {
+	Name      string `json:"name"`
+	DirectUrl string `json:"directUrl"`
+}
+
+// GetName returns ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile.Name, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile) GetName() string {
+	return v.Name
+}
+
+// GetDirectUrl returns ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile.DirectUrl, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnectionEdgesFileEdgeNodeFile) GetDirectUrl() string {
+	return v.DirectUrl
+}
+
+// ArtifactFileURLsArtifactFilesFileConnectionPageInfo includes the requested fields of the GraphQL type PageInfo.
+type ArtifactFileURLsArtifactFilesFileConnectionPageInfo struct {
+	HasNextPage bool    `json:"hasNextPage"`
+	EndCursor   *string `json:"endCursor"`
+}
+
+// GetHasNextPage returns ArtifactFileURLsArtifactFilesFileConnectionPageInfo.HasNextPage, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnectionPageInfo) GetHasNextPage() bool {
+	return v.HasNextPage
+}
+
+// GetEndCursor returns ArtifactFileURLsArtifactFilesFileConnectionPageInfo.EndCursor, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsArtifactFilesFileConnectionPageInfo) GetEndCursor() *string {
+	return v.EndCursor
+}
+
+// ArtifactFileURLsResponse is returned by ArtifactFileURLs on success.
+type ArtifactFileURLsResponse struct {
+	Artifact *ArtifactFileURLsArtifact `json:"artifact"`
+}
+
+// GetArtifact returns ArtifactFileURLsResponse.Artifact, and is useful for accessing the field via an interface.
+func (v *ArtifactFileURLsResponse) GetArtifact() *ArtifactFileURLsArtifact { return v.Artifact }
+
+// ArtifactManifestArtifact includes the requested fields of the GraphQL type Artifact.
+type ArtifactManifestArtifact struct {
+	CurrentManifest *ArtifactManifestArtifactCurrentManifestArtifactManifest `json:"currentManifest"`
+}
+
+// GetCurrentManifest returns ArtifactManifestArtifact.CurrentManifest, and is useful for accessing the field via an interface.
+func (v *ArtifactManifestArtifact) GetCurrentManifest() *ArtifactManifestArtifactCurrentManifestArtifactManifest {
+	return v.CurrentManifest
+}
+
+// ArtifactManifestArtifactCurrentManifestArtifactManifest includes the requested fields of the GraphQL type ArtifactManifest.
+type ArtifactManifestArtifactCurrentManifestArtifactManifest struct {
+	File ArtifactManifestArtifactCurrentManifestArtifactManifestFile `json:"file"`
+}
+
+// GetFile returns ArtifactManifestArtifactCurrentManifestArtifactManifest.File, and is useful for accessing the field via an interface.
+func (v *ArtifactManifestArtifactCurrentManifestArtifactManifest) GetFile() ArtifactManifestArtifactCurrentManifestArtifactManifestFile {
+	return v.File
+}
+
+// ArtifactManifestArtifactCurrentManifestArtifactManifestFile includes the requested fields of the GraphQL type File.
+type ArtifactManifestArtifactCurrentManifestArtifactManifestFile struct {
+	DirectUrl string `json:"directUrl"`
+}
+
+// GetDirectUrl returns ArtifactManifestArtifactCurrentManifestArtifactManifestFile.DirectUrl, and is useful for accessing the field via an interface.
+func (v *ArtifactManifestArtifactCurrentManifestArtifactManifestFile) GetDirectUrl() string {
+	return v.DirectUrl
+}
+
+// ArtifactManifestResponse is returned by ArtifactManifest on success.
+type ArtifactManifestResponse struct {
+	Artifact *ArtifactManifestArtifact `json:"artifact"`
+}
+
+// GetArtifact returns ArtifactManifestResponse.Artifact, and is useful for accessing the field via an interface.
+func (v *ArtifactManifestResponse) GetArtifact() *ArtifactManifestArtifact { return v.Artifact }
+
 type ArtifactManifestType string
 
 const (
@@ -49,6 +163,24 @@ const (
 	ArtifactStorageLayoutV1 ArtifactStorageLayout = "V1"
 	ArtifactStorageLayoutV2 ArtifactStorageLayout = "V2"
 )
+
+// ClientIDMappingClientIDMapping includes the requested fields of the GraphQL type ClientIDMapping.
+type ClientIDMappingClientIDMapping struct {
+	ServerID string `json:"serverID"`
+}
+
+// GetServerID returns ClientIDMappingClientIDMapping.ServerID, and is useful for accessing the field via an interface.
+func (v *ClientIDMappingClientIDMapping) GetServerID() string { return v.ServerID }
+
+// ClientIDMappingResponse is returned by ClientIDMapping on success.
+type ClientIDMappingResponse struct {
+	ClientIDMapping *ClientIDMappingClientIDMapping `json:"clientIDMapping"`
+}
+
+// GetClientIDMapping returns ClientIDMappingResponse.ClientIDMapping, and is useful for accessing the field via an interface.
+func (v *ClientIDMappingResponse) GetClientIDMapping() *ClientIDMappingClientIDMapping {
+	return v.ClientIDMapping
+}
 
 // CommitArtifactCommitArtifactCommitArtifactPayload includes the requested fields of the GraphQL type CommitArtifactPayload.
 type CommitArtifactCommitArtifactCommitArtifactPayload struct {
@@ -96,29 +228,17 @@ func (v *CreateArtifactCreateArtifactCreateArtifactPayload) GetArtifact() Create
 
 // CreateArtifactCreateArtifactCreateArtifactPayloadArtifact includes the requested fields of the GraphQL type Artifact.
 type CreateArtifactCreateArtifactCreateArtifactPayloadArtifact struct {
-	Id               string                                                                          `json:"id"`
-	Digest           string                                                                          `json:"digest"`
-	State            ArtifactState                                                                   `json:"state"`
-	Aliases          []CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias `json:"aliases"`
-	ArtifactSequence CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence       `json:"artifactSequence"`
+	Id               string                                                                    `json:"id"`
+	State            ArtifactState                                                             `json:"state"`
+	ArtifactSequence CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence `json:"artifactSequence"`
 }
 
 // GetId returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifact.Id, and is useful for accessing the field via an interface.
 func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifact) GetId() string { return v.Id }
 
-// GetDigest returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifact.Digest, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifact) GetDigest() string {
-	return v.Digest
-}
-
 // GetState returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifact.State, and is useful for accessing the field via an interface.
 func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifact) GetState() ArtifactState {
 	return v.State
-}
-
-// GetAliases returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifact.Aliases, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifact) GetAliases() []CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias {
-	return v.Aliases
 }
 
 // GetArtifactSequence returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifact.ArtifactSequence, and is useful for accessing the field via an interface.
@@ -126,31 +246,9 @@ func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifact) GetArtifactS
 	return v.ArtifactSequence
 }
 
-// CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias includes the requested fields of the GraphQL type ArtifactAlias.
-type CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias struct {
-	ArtifactCollectionName string `json:"artifactCollectionName"`
-	Alias                  string `json:"alias"`
-}
-
-// GetArtifactCollectionName returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias.ArtifactCollectionName, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias) GetArtifactCollectionName() string {
-	return v.ArtifactCollectionName
-}
-
-// GetAlias returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias.Alias, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactAliasesArtifactAlias) GetAlias() string {
-	return v.Alias
-}
-
 // CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence includes the requested fields of the GraphQL type ArtifactSequence.
 type CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence struct {
-	Id             string                                                                                   `json:"id"`
 	LatestArtifact *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact `json:"latestArtifact"`
-}
-
-// GetId returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence.Id, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence) GetId() string {
-	return v.Id
 }
 
 // GetLatestArtifact returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequence.LatestArtifact, and is useful for accessing the field via an interface.
@@ -160,18 +258,12 @@ func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequen
 
 // CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact includes the requested fields of the GraphQL type Artifact.
 type CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact struct {
-	Id           string `json:"id"`
-	VersionIndex *int   `json:"versionIndex"`
+	Id string `json:"id"`
 }
 
 // GetId returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact.Id, and is useful for accessing the field via an interface.
 func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact) GetId() string {
 	return v.Id
-}
-
-// GetVersionIndex returns CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact.VersionIndex, and is useful for accessing the field via an interface.
-func (v *CreateArtifactCreateArtifactCreateArtifactPayloadArtifactArtifactSequenceLatestArtifact) GetVersionIndex() *int {
-	return v.VersionIndex
 }
 
 type CreateArtifactFileSpecInput struct {
@@ -235,27 +327,9 @@ func (v *CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFi
 
 // CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile includes the requested fields of the GraphQL type File.
 type CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile struct {
-	Id            string                                                                                                            `json:"id"`
-	Name          string                                                                                                            `json:"name"`
-	DisplayName   string                                                                                                            `json:"displayName"`
 	UploadUrl     *string                                                                                                           `json:"uploadUrl"`
 	UploadHeaders []string                                                                                                          `json:"uploadHeaders"`
 	Artifact      *CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFileArtifact `json:"artifact"`
-}
-
-// GetId returns CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile.Id, and is useful for accessing the field via an interface.
-func (v *CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile) GetId() string {
-	return v.Id
-}
-
-// GetName returns CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile.Name, and is useful for accessing the field via an interface.
-func (v *CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile) GetName() string {
-	return v.Name
-}
-
-// GetDisplayName returns CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile.DisplayName, and is useful for accessing the field via an interface.
-func (v *CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile) GetDisplayName() string {
-	return v.DisplayName
 }
 
 // GetUploadUrl returns CreateArtifactFilesCreateArtifactFilesCreateArtifactFilesPayloadFilesFileConnectionEdgesFileEdgeNodeFile.UploadUrl, and is useful for accessing the field via an interface.
@@ -322,8 +396,6 @@ func (v *CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPaylo
 // CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile includes the requested fields of the GraphQL type File.
 type CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile struct {
 	Id            string   `json:"id"`
-	Name          string   `json:"name"`
-	DisplayName   string   `json:"displayName"`
 	UploadUrl     *string  `json:"uploadUrl"`
 	UploadHeaders []string `json:"uploadHeaders"`
 }
@@ -331,16 +403,6 @@ type CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadAr
 // GetId returns CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile.Id, and is useful for accessing the field via an interface.
 func (v *CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile) GetId() string {
 	return v.Id
-}
-
-// GetName returns CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile.Name, and is useful for accessing the field via an interface.
-func (v *CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile) GetName() string {
-	return v.Name
-}
-
-// GetDisplayName returns CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile.DisplayName, and is useful for accessing the field via an interface.
-func (v *CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile) GetDisplayName() string {
-	return v.DisplayName
 }
 
 // GetUploadUrl returns CreateArtifactManifestCreateArtifactManifestCreateArtifactManifestPayloadArtifactManifestFile.UploadUrl, and is useful for accessing the field via an interface.
@@ -542,12 +604,12 @@ type RunResumeStatusResponse struct {
 func (v *RunResumeStatusResponse) GetModel() *RunResumeStatusModelProject { return v.Model }
 
 type UploadPartsInput struct {
-	PartNumber int    `json:"partNumber"`
+	PartNumber int64  `json:"partNumber"`
 	HexMD5     string `json:"hexMD5"`
 }
 
 // GetPartNumber returns UploadPartsInput.PartNumber, and is useful for accessing the field via an interface.
-func (v *UploadPartsInput) GetPartNumber() int { return v.PartNumber }
+func (v *UploadPartsInput) GetPartNumber() int64 { return v.PartNumber }
 
 // GetHexMD5 returns UploadPartsInput.HexMD5, and is useful for accessing the field via an interface.
 func (v *UploadPartsInput) GetHexMD5() string { return v.HexMD5 }
@@ -650,6 +712,34 @@ func (v *UpsertBucketUpsertBucketUpsertBucketPayloadBucketRunProjectEntity) GetN
 	return v.Name
 }
 
+// UseArtifactResponse is returned by UseArtifact on success.
+type UseArtifactResponse struct {
+	UseArtifact *UseArtifactUseArtifactUseArtifactPayload `json:"useArtifact"`
+}
+
+// GetUseArtifact returns UseArtifactResponse.UseArtifact, and is useful for accessing the field via an interface.
+func (v *UseArtifactResponse) GetUseArtifact() *UseArtifactUseArtifactUseArtifactPayload {
+	return v.UseArtifact
+}
+
+// UseArtifactUseArtifactUseArtifactPayload includes the requested fields of the GraphQL type UseArtifactPayload.
+type UseArtifactUseArtifactUseArtifactPayload struct {
+	Artifact UseArtifactUseArtifactUseArtifactPayloadArtifact `json:"artifact"`
+}
+
+// GetArtifact returns UseArtifactUseArtifactUseArtifactPayload.Artifact, and is useful for accessing the field via an interface.
+func (v *UseArtifactUseArtifactUseArtifactPayload) GetArtifact() UseArtifactUseArtifactUseArtifactPayloadArtifact {
+	return v.Artifact
+}
+
+// UseArtifactUseArtifactUseArtifactPayloadArtifact includes the requested fields of the GraphQL type Artifact.
+type UseArtifactUseArtifactUseArtifactPayloadArtifact struct {
+	Id string `json:"id"`
+}
+
+// GetId returns UseArtifactUseArtifactUseArtifactPayloadArtifact.Id, and is useful for accessing the field via an interface.
+func (v *UseArtifactUseArtifactUseArtifactPayloadArtifact) GetId() string { return v.Id }
+
 // ViewerResponse is returned by Viewer on success.
 type ViewerResponse struct {
 	Viewer *ViewerViewerUser `json:"viewer"`
@@ -708,6 +798,38 @@ func (v *ViewerViewerUserTeamsEntityConnectionEdgesEntityEdgeNodeEntity) GetName
 	return v.Name
 }
 
+// __ArtifactFileURLsInput is used internally by genqlient
+type __ArtifactFileURLsInput struct {
+	Id      string  `json:"id"`
+	Cursor  *string `json:"cursor"`
+	PerPage *int    `json:"perPage"`
+}
+
+// GetId returns __ArtifactFileURLsInput.Id, and is useful for accessing the field via an interface.
+func (v *__ArtifactFileURLsInput) GetId() string { return v.Id }
+
+// GetCursor returns __ArtifactFileURLsInput.Cursor, and is useful for accessing the field via an interface.
+func (v *__ArtifactFileURLsInput) GetCursor() *string { return v.Cursor }
+
+// GetPerPage returns __ArtifactFileURLsInput.PerPage, and is useful for accessing the field via an interface.
+func (v *__ArtifactFileURLsInput) GetPerPage() *int { return v.PerPage }
+
+// __ArtifactManifestInput is used internally by genqlient
+type __ArtifactManifestInput struct {
+	Artifact_id string `json:"artifact_id"`
+}
+
+// GetArtifact_id returns __ArtifactManifestInput.Artifact_id, and is useful for accessing the field via an interface.
+func (v *__ArtifactManifestInput) GetArtifact_id() string { return v.Artifact_id }
+
+// __ClientIDMappingInput is used internally by genqlient
+type __ClientIDMappingInput struct {
+	ClientID string `json:"clientID"`
+}
+
+// GetClientID returns __ClientIDMappingInput.ClientID, and is useful for accessing the field via an interface.
+func (v *__ClientIDMappingInput) GetClientID() string { return v.ClientID }
+
 // __CommitArtifactInput is used internally by genqlient
 type __CommitArtifactInput struct {
 	ArtifactID string `json:"artifactID"`
@@ -718,41 +840,34 @@ func (v *__CommitArtifactInput) GetArtifactID() string { return v.ArtifactID }
 
 // __CreateArtifactFilesInput is used internally by genqlient
 type __CreateArtifactFilesInput struct {
-	StorageLayout ArtifactStorageLayout         `json:"storageLayout"`
 	ArtifactFiles []CreateArtifactFileSpecInput `json:"artifactFiles"`
+	StorageLayout ArtifactStorageLayout         `json:"storageLayout"`
 }
-
-// GetStorageLayout returns __CreateArtifactFilesInput.StorageLayout, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactFilesInput) GetStorageLayout() ArtifactStorageLayout { return v.StorageLayout }
 
 // GetArtifactFiles returns __CreateArtifactFilesInput.ArtifactFiles, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactFilesInput) GetArtifactFiles() []CreateArtifactFileSpecInput {
 	return v.ArtifactFiles
 }
 
+// GetStorageLayout returns __CreateArtifactFilesInput.StorageLayout, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactFilesInput) GetStorageLayout() ArtifactStorageLayout { return v.StorageLayout }
+
 // __CreateArtifactInput is used internally by genqlient
 type __CreateArtifactInput struct {
-	ArtifactTypeName          string               `json:"artifactTypeName"`
-	ArtifactCollectionNames   []string             `json:"artifactCollectionNames"`
-	EntityName                string               `json:"entityName"`
-	ProjectName               string               `json:"projectName"`
-	RunName                   *string              `json:"runName"`
-	Description               *string              `json:"description"`
-	Digest                    string               `json:"digest"`
-	Labels                    *string              `json:"labels"`
-	Aliases                   []ArtifactAliasInput `json:"aliases"`
-	Metadata                  *string              `json:"metadata"`
-	ClientID                  string               `json:"clientID"`
-	SequenceClientID          string               `json:"sequenceClientID"`
-	EnableDigestDeduplication *bool                `json:"enableDigestDeduplication"`
-}
-
-// GetArtifactTypeName returns __CreateArtifactInput.ArtifactTypeName, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactInput) GetArtifactTypeName() string { return v.ArtifactTypeName }
-
-// GetArtifactCollectionNames returns __CreateArtifactInput.ArtifactCollectionNames, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactInput) GetArtifactCollectionNames() []string {
-	return v.ArtifactCollectionNames
+	EntityName             string               `json:"entityName"`
+	ProjectName            string               `json:"projectName"`
+	ArtifactTypeName       string               `json:"artifactTypeName"`
+	ArtifactCollectionName string               `json:"artifactCollectionName"`
+	RunName                *string              `json:"runName"`
+	Digest                 string               `json:"digest"`
+	Description            *string              `json:"description"`
+	Aliases                []ArtifactAliasInput `json:"aliases"`
+	Metadata               *string              `json:"metadata"`
+	TtlDurationSeconds     *int64               `json:"ttlDurationSeconds"`
+	HistoryStep            *int64               `json:"historyStep"`
+	DistributedID          *string              `json:"distributedID"`
+	ClientID               string               `json:"clientID"`
+	SequenceClientID       string               `json:"sequenceClientID"`
 }
 
 // GetEntityName returns __CreateArtifactInput.EntityName, and is useful for accessing the field via an interface.
@@ -761,17 +876,20 @@ func (v *__CreateArtifactInput) GetEntityName() string { return v.EntityName }
 // GetProjectName returns __CreateArtifactInput.ProjectName, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetProjectName() string { return v.ProjectName }
 
+// GetArtifactTypeName returns __CreateArtifactInput.ArtifactTypeName, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetArtifactTypeName() string { return v.ArtifactTypeName }
+
+// GetArtifactCollectionName returns __CreateArtifactInput.ArtifactCollectionName, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetArtifactCollectionName() string { return v.ArtifactCollectionName }
+
 // GetRunName returns __CreateArtifactInput.RunName, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetRunName() *string { return v.RunName }
-
-// GetDescription returns __CreateArtifactInput.Description, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactInput) GetDescription() *string { return v.Description }
 
 // GetDigest returns __CreateArtifactInput.Digest, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetDigest() string { return v.Digest }
 
-// GetLabels returns __CreateArtifactInput.Labels, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactInput) GetLabels() *string { return v.Labels }
+// GetDescription returns __CreateArtifactInput.Description, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetDescription() *string { return v.Description }
 
 // GetAliases returns __CreateArtifactInput.Aliases, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetAliases() []ArtifactAliasInput { return v.Aliases }
@@ -779,41 +897,45 @@ func (v *__CreateArtifactInput) GetAliases() []ArtifactAliasInput { return v.Ali
 // GetMetadata returns __CreateArtifactInput.Metadata, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetMetadata() *string { return v.Metadata }
 
+// GetTtlDurationSeconds returns __CreateArtifactInput.TtlDurationSeconds, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetTtlDurationSeconds() *int64 { return v.TtlDurationSeconds }
+
+// GetHistoryStep returns __CreateArtifactInput.HistoryStep, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetHistoryStep() *int64 { return v.HistoryStep }
+
+// GetDistributedID returns __CreateArtifactInput.DistributedID, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactInput) GetDistributedID() *string { return v.DistributedID }
+
 // GetClientID returns __CreateArtifactInput.ClientID, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetClientID() string { return v.ClientID }
 
 // GetSequenceClientID returns __CreateArtifactInput.SequenceClientID, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactInput) GetSequenceClientID() string { return v.SequenceClientID }
 
-// GetEnableDigestDeduplication returns __CreateArtifactInput.EnableDigestDeduplication, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactInput) GetEnableDigestDeduplication() *bool {
-	return v.EnableDigestDeduplication
-}
-
 // __CreateArtifactManifestInput is used internally by genqlient
 type __CreateArtifactManifestInput struct {
-	Name           string                `json:"name"`
-	Digest         string                `json:"digest"`
-	ArtifactID     string                `json:"artifactID"`
-	BaseArtifactID *string               `json:"baseArtifactID"`
-	EntityName     string                `json:"entityName"`
-	ProjectName    string                `json:"projectName"`
-	RunName        string                `json:"runName"`
-	IncludeUpload  bool                  `json:"includeUpload"`
-	TypeManifest   *ArtifactManifestType `json:"typeManifest"`
+	ArtifactID     string               `json:"artifactID"`
+	BaseArtifactID *string              `json:"baseArtifactID"`
+	Name           string               `json:"name"`
+	Digest         string               `json:"digest"`
+	EntityName     string               `json:"entityName"`
+	ProjectName    string               `json:"projectName"`
+	RunName        string               `json:"runName"`
+	ManifestType   ArtifactManifestType `json:"manifestType"`
+	IncludeUpload  bool                 `json:"includeUpload"`
 }
-
-// GetName returns __CreateArtifactManifestInput.Name, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactManifestInput) GetName() string { return v.Name }
-
-// GetDigest returns __CreateArtifactManifestInput.Digest, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactManifestInput) GetDigest() string { return v.Digest }
 
 // GetArtifactID returns __CreateArtifactManifestInput.ArtifactID, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactManifestInput) GetArtifactID() string { return v.ArtifactID }
 
 // GetBaseArtifactID returns __CreateArtifactManifestInput.BaseArtifactID, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactManifestInput) GetBaseArtifactID() *string { return v.BaseArtifactID }
+
+// GetName returns __CreateArtifactManifestInput.Name, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactManifestInput) GetName() string { return v.Name }
+
+// GetDigest returns __CreateArtifactManifestInput.Digest, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactManifestInput) GetDigest() string { return v.Digest }
 
 // GetEntityName returns __CreateArtifactManifestInput.EntityName, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactManifestInput) GetEntityName() string { return v.EntityName }
@@ -824,13 +946,11 @@ func (v *__CreateArtifactManifestInput) GetProjectName() string { return v.Proje
 // GetRunName returns __CreateArtifactManifestInput.RunName, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactManifestInput) GetRunName() string { return v.RunName }
 
+// GetManifestType returns __CreateArtifactManifestInput.ManifestType, and is useful for accessing the field via an interface.
+func (v *__CreateArtifactManifestInput) GetManifestType() ArtifactManifestType { return v.ManifestType }
+
 // GetIncludeUpload returns __CreateArtifactManifestInput.IncludeUpload, and is useful for accessing the field via an interface.
 func (v *__CreateArtifactManifestInput) GetIncludeUpload() bool { return v.IncludeUpload }
-
-// GetTypeManifest returns __CreateArtifactManifestInput.TypeManifest, and is useful for accessing the field via an interface.
-func (v *__CreateArtifactManifestInput) GetTypeManifest() *ArtifactManifestType {
-	return v.TypeManifest
-}
 
 // __CreateRunFilesInput is used internally by genqlient
 type __CreateRunFilesInput struct {
@@ -1008,6 +1128,150 @@ func (v *__UpsertBucketInput) GetTags() []string { return v.Tags }
 // GetSummaryMetrics returns __UpsertBucketInput.SummaryMetrics, and is useful for accessing the field via an interface.
 func (v *__UpsertBucketInput) GetSummaryMetrics() *string { return v.SummaryMetrics }
 
+// __UseArtifactInput is used internally by genqlient
+type __UseArtifactInput struct {
+	EntityName  string `json:"entityName"`
+	ProjectName string `json:"projectName"`
+	RunName     string `json:"runName"`
+	ArtifactID  string `json:"artifactID"`
+}
+
+// GetEntityName returns __UseArtifactInput.EntityName, and is useful for accessing the field via an interface.
+func (v *__UseArtifactInput) GetEntityName() string { return v.EntityName }
+
+// GetProjectName returns __UseArtifactInput.ProjectName, and is useful for accessing the field via an interface.
+func (v *__UseArtifactInput) GetProjectName() string { return v.ProjectName }
+
+// GetRunName returns __UseArtifactInput.RunName, and is useful for accessing the field via an interface.
+func (v *__UseArtifactInput) GetRunName() string { return v.RunName }
+
+// GetArtifactID returns __UseArtifactInput.ArtifactID, and is useful for accessing the field via an interface.
+func (v *__UseArtifactInput) GetArtifactID() string { return v.ArtifactID }
+
+// The query or mutation executed by ArtifactFileURLs.
+const ArtifactFileURLs_Operation = `
+query ArtifactFileURLs ($id: ID!, $cursor: String, $perPage: Int) {
+	artifact(id: $id) {
+		files(after: $cursor, first: $perPage) {
+			pageInfo {
+				hasNextPage
+				endCursor
+			}
+			edges {
+				node {
+					name
+					directUrl
+				}
+			}
+		}
+	}
+}
+`
+
+func ArtifactFileURLs(
+	ctx context.Context,
+	client graphql.Client,
+	id string,
+	cursor *string,
+	perPage *int,
+) (*ArtifactFileURLsResponse, error) {
+	req := &graphql.Request{
+		OpName: "ArtifactFileURLs",
+		Query:  ArtifactFileURLs_Operation,
+		Variables: &__ArtifactFileURLsInput{
+			Id:      id,
+			Cursor:  cursor,
+			PerPage: perPage,
+		},
+	}
+	var err error
+
+	var data ArtifactFileURLsResponse
+	resp := &graphql.Response{Data: &data}
+
+	err = client.MakeRequest(
+		ctx,
+		req,
+		resp,
+	)
+
+	return &data, err
+}
+
+// The query or mutation executed by ArtifactManifest.
+const ArtifactManifest_Operation = `
+query ArtifactManifest ($artifact_id: ID!) {
+	artifact(id: $artifact_id) {
+		currentManifest {
+			file {
+				directUrl
+			}
+		}
+	}
+}
+`
+
+func ArtifactManifest(
+	ctx context.Context,
+	client graphql.Client,
+	artifact_id string,
+) (*ArtifactManifestResponse, error) {
+	req := &graphql.Request{
+		OpName: "ArtifactManifest",
+		Query:  ArtifactManifest_Operation,
+		Variables: &__ArtifactManifestInput{
+			Artifact_id: artifact_id,
+		},
+	}
+	var err error
+
+	var data ArtifactManifestResponse
+	resp := &graphql.Response{Data: &data}
+
+	err = client.MakeRequest(
+		ctx,
+		req,
+		resp,
+	)
+
+	return &data, err
+}
+
+// The query or mutation executed by ClientIDMapping.
+const ClientIDMapping_Operation = `
+query ClientIDMapping ($clientID: ID!) {
+	clientIDMapping(clientID: $clientID) {
+		serverID
+	}
+}
+`
+
+func ClientIDMapping(
+	ctx context.Context,
+	client graphql.Client,
+	clientID string,
+) (*ClientIDMappingResponse, error) {
+	req := &graphql.Request{
+		OpName: "ClientIDMapping",
+		Query:  ClientIDMapping_Operation,
+		Variables: &__ClientIDMappingInput{
+			ClientID: clientID,
+		},
+	}
+	var err error
+
+	var data ClientIDMappingResponse
+	resp := &graphql.Response{Data: &data}
+
+	err = client.MakeRequest(
+		ctx,
+		req,
+		resp,
+	)
+
+	return &data, err
+}
+
 // The query or mutation executed by CommitArtifact.
 const CommitArtifact_Operation = `
 mutation CommitArtifact ($artifactID: ID!) {
@@ -1048,21 +1312,14 @@ func CommitArtifact(
 
 // The query or mutation executed by CreateArtifact.
 const CreateArtifact_Operation = `
-mutation CreateArtifact ($artifactTypeName: String!, $artifactCollectionNames: [String!], $entityName: String!, $projectName: String!, $runName: String, $description: String, $digest: String!, $labels: JSONString, $aliases: [ArtifactAliasInput!], $metadata: JSONString, $clientID: ID!, $sequenceClientID: ID!, $enableDigestDeduplication: Boolean) {
-	createArtifact(input: {artifactTypeName:$artifactTypeName,artifactCollectionNames:$artifactCollectionNames,entityName:$entityName,projectName:$projectName,runName:$runName,description:$description,digest:$digest,digestAlgorithm:MANIFEST_MD5,labels:$labels,aliases:$aliases,metadata:$metadata,clientID:$clientID,sequenceClientID:$sequenceClientID,enableDigestDeduplication:$enableDigestDeduplication}) {
+mutation CreateArtifact ($entityName: String!, $projectName: String!, $artifactTypeName: String!, $artifactCollectionName: String!, $runName: String, $digest: String!, $description: String, $aliases: [ArtifactAliasInput!], $metadata: JSONString, $ttlDurationSeconds: Int64, $historyStep: Int64, $distributedID: String, $clientID: ID!, $sequenceClientID: ID!) {
+	createArtifact(input: {entityName:$entityName,projectName:$projectName,artifactTypeName:$artifactTypeName,artifactCollectionName:$artifactCollectionName,runName:$runName,digest:$digest,digestAlgorithm:MANIFEST_MD5,description:$description,aliases:$aliases,metadata:$metadata,ttlDurationSeconds:$ttlDurationSeconds,historyStep:$historyStep,enableDigestDeduplication:true,distributedID:$distributedID,clientID:$clientID,sequenceClientID:$sequenceClientID}) {
 		artifact {
 			id
-			digest
 			state
-			aliases {
-				artifactCollectionName
-				alias
-			}
 			artifactSequence {
-				id
 				latestArtifact {
 					id
-					versionIndex
 				}
 			}
 		}
@@ -1073,37 +1330,39 @@ mutation CreateArtifact ($artifactTypeName: String!, $artifactCollectionNames: [
 func CreateArtifact(
 	ctx context.Context,
 	client graphql.Client,
-	artifactTypeName string,
-	artifactCollectionNames []string,
 	entityName string,
 	projectName string,
+	artifactTypeName string,
+	artifactCollectionName string,
 	runName *string,
-	description *string,
 	digest string,
-	labels *string,
+	description *string,
 	aliases []ArtifactAliasInput,
 	metadata *string,
+	ttlDurationSeconds *int64,
+	historyStep *int64,
+	distributedID *string,
 	clientID string,
 	sequenceClientID string,
-	enableDigestDeduplication *bool,
 ) (*CreateArtifactResponse, error) {
 	req := &graphql.Request{
 		OpName: "CreateArtifact",
 		Query:  CreateArtifact_Operation,
 		Variables: &__CreateArtifactInput{
-			ArtifactTypeName:          artifactTypeName,
-			ArtifactCollectionNames:   artifactCollectionNames,
-			EntityName:                entityName,
-			ProjectName:               projectName,
-			RunName:                   runName,
-			Description:               description,
-			Digest:                    digest,
-			Labels:                    labels,
-			Aliases:                   aliases,
-			Metadata:                  metadata,
-			ClientID:                  clientID,
-			SequenceClientID:          sequenceClientID,
-			EnableDigestDeduplication: enableDigestDeduplication,
+			EntityName:             entityName,
+			ProjectName:            projectName,
+			ArtifactTypeName:       artifactTypeName,
+			ArtifactCollectionName: artifactCollectionName,
+			RunName:                runName,
+			Digest:                 digest,
+			Description:            description,
+			Aliases:                aliases,
+			Metadata:               metadata,
+			TtlDurationSeconds:     ttlDurationSeconds,
+			HistoryStep:            historyStep,
+			DistributedID:          distributedID,
+			ClientID:               clientID,
+			SequenceClientID:       sequenceClientID,
 		},
 	}
 	var err error
@@ -1122,14 +1381,11 @@ func CreateArtifact(
 
 // The query or mutation executed by CreateArtifactFiles.
 const CreateArtifactFiles_Operation = `
-mutation CreateArtifactFiles ($storageLayout: ArtifactStorageLayout!, $artifactFiles: [CreateArtifactFileSpecInput!]!) {
+mutation CreateArtifactFiles ($artifactFiles: [CreateArtifactFileSpecInput!]!, $storageLayout: ArtifactStorageLayout!) {
 	createArtifactFiles(input: {artifactFiles:$artifactFiles,storageLayout:$storageLayout}) {
 		files {
 			edges {
 				node {
-					id
-					name
-					displayName
 					uploadUrl
 					uploadHeaders
 					artifact {
@@ -1145,15 +1401,15 @@ mutation CreateArtifactFiles ($storageLayout: ArtifactStorageLayout!, $artifactF
 func CreateArtifactFiles(
 	ctx context.Context,
 	client graphql.Client,
-	storageLayout ArtifactStorageLayout,
 	artifactFiles []CreateArtifactFileSpecInput,
+	storageLayout ArtifactStorageLayout,
 ) (*CreateArtifactFilesResponse, error) {
 	req := &graphql.Request{
 		OpName: "CreateArtifactFiles",
 		Query:  CreateArtifactFiles_Operation,
 		Variables: &__CreateArtifactFilesInput{
-			StorageLayout: storageLayout,
 			ArtifactFiles: artifactFiles,
+			StorageLayout: storageLayout,
 		},
 	}
 	var err error
@@ -1172,14 +1428,12 @@ func CreateArtifactFiles(
 
 // The query or mutation executed by CreateArtifactManifest.
 const CreateArtifactManifest_Operation = `
-mutation CreateArtifactManifest ($name: String!, $digest: String!, $artifactID: ID!, $baseArtifactID: ID, $entityName: String!, $projectName: String!, $runName: String!, $includeUpload: Boolean!, $typeManifest: ArtifactManifestType = FULL) {
-	createArtifactManifest(input: {name:$name,digest:$digest,artifactID:$artifactID,baseArtifactID:$baseArtifactID,entityName:$entityName,projectName:$projectName,runName:$runName,type:$typeManifest}) {
+mutation CreateArtifactManifest ($artifactID: ID!, $baseArtifactID: ID, $name: String!, $digest: String!, $entityName: String!, $projectName: String!, $runName: String!, $manifestType: ArtifactManifestType!, $includeUpload: Boolean!) {
+	createArtifactManifest(input: {artifactID:$artifactID,baseArtifactID:$baseArtifactID,name:$name,digest:$digest,entityName:$entityName,projectName:$projectName,runName:$runName,type:$manifestType}) {
 		artifactManifest {
 			id
 			file {
 				id
-				name
-				displayName
 				uploadUrl @include(if: $includeUpload)
 				uploadHeaders @include(if: $includeUpload)
 			}
@@ -1191,29 +1445,29 @@ mutation CreateArtifactManifest ($name: String!, $digest: String!, $artifactID: 
 func CreateArtifactManifest(
 	ctx context.Context,
 	client graphql.Client,
-	name string,
-	digest string,
 	artifactID string,
 	baseArtifactID *string,
+	name string,
+	digest string,
 	entityName string,
 	projectName string,
 	runName string,
+	manifestType ArtifactManifestType,
 	includeUpload bool,
-	typeManifest *ArtifactManifestType,
 ) (*CreateArtifactManifestResponse, error) {
 	req := &graphql.Request{
 		OpName: "CreateArtifactManifest",
 		Query:  CreateArtifactManifest_Operation,
 		Variables: &__CreateArtifactManifestInput{
-			Name:           name,
-			Digest:         digest,
 			ArtifactID:     artifactID,
 			BaseArtifactID: baseArtifactID,
+			Name:           name,
+			Digest:         digest,
 			EntityName:     entityName,
 			ProjectName:    projectName,
 			RunName:        runName,
+			ManifestType:   manifestType,
 			IncludeUpload:  includeUpload,
-			TypeManifest:   typeManifest,
 		},
 	}
 	var err error
@@ -1500,6 +1754,49 @@ func UpsertBucket(
 	var err error
 
 	var data UpsertBucketResponse
+	resp := &graphql.Response{Data: &data}
+
+	err = client.MakeRequest(
+		ctx,
+		req,
+		resp,
+	)
+
+	return &data, err
+}
+
+// The query or mutation executed by UseArtifact.
+const UseArtifact_Operation = `
+mutation UseArtifact ($entityName: String!, $projectName: String!, $runName: String!, $artifactID: ID!) {
+	useArtifact(input: {entityName:$entityName,projectName:$projectName,runName:$runName,artifactID:$artifactID}) {
+		artifact {
+			id
+		}
+	}
+}
+`
+
+func UseArtifact(
+	ctx context.Context,
+	client graphql.Client,
+	entityName string,
+	projectName string,
+	runName string,
+	artifactID string,
+) (*UseArtifactResponse, error) {
+	req := &graphql.Request{
+		OpName: "UseArtifact",
+		Query:  UseArtifact_Operation,
+		Variables: &__UseArtifactInput{
+			EntityName:  entityName,
+			ProjectName: projectName,
+			RunName:     runName,
+			ArtifactID:  artifactID,
+		},
+	}
+	var err error
+
+	var data UseArtifactResponse
 	resp := &graphql.Response{Data: &data}
 
 	err = client.MakeRequest(
